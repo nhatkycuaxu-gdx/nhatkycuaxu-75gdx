@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang Tổng Hợp Kiến Thức</title>
+    <title>Trang Gì kệ nó</title>
     <style>
         body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 20px; background: #f4f4f4; }
         .container { max-width: 700px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
@@ -17,22 +17,22 @@
 </head>
 <body>
     <div class="container">
-        <h1>BẢN TIN GIÁO DỤC 2026</h1>
+        <h1>BẢN TIN NỘI BỘ XÃ PHƯỚC VINH</h1>
         
         <section>
             <h2>📰 Tin Tức Mới</h2>
-            <p><strong>Khám phá:</strong> Những di tích lịch sử vừa được số hóa 3D giúp học sinh trải nghiệm chân thực hơn.</p>
+            <p><strong>Nóng:</strong> Chị Bảy Gao đang ở chợ Phước Vinh mở tiệm phở bị Toàn vô ăn khen ngon</p>
         </section>
 
         <section>
-            <h2>📺 Video Bài Giảng</h2>
+            <h2>📺 Video </h2>
             <div class="video-box">
                 <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe>
             </div>
         </section>
 
         <section>
-            <h2>🎮 Game Trắc Nghiệm</h2>
+            <h2> Có phải là Cali ? </h2>
             <div class="quiz-box">
                 <p id="q" style="font-weight:bold;">Đang tải câu hỏi...</p>
                 <div id="btns"></div>
@@ -48,9 +48,19 @@
 
     <script>
         const data = [
-            {q: "Đỉnh núi cao nhất Việt Nam là?", a: ["Fansipan", "Mẫu Sơn", "Tây Côn Lĩnh"], c: 0},
-            {q: "Vua cuối cùng của Việt Nam là ai?", a: ["Bảo Đại", "Khải Định", "Minh Mạng"], c: 0}
+                    const data = [
+            {q: "Đỉnh núi cao nhất Việt Nam là?", a: ["Fansipan", " Bà Đen", "Tây Côn Lĩnh"], c: 0},
+            {q: "Vua cuối cùng của Việt Nam là ai?", a: ["Bảo Đại", "Khải Định", "Minh Mạng"], c: 0},
+            {q: "Sông nào dài nhất chảy qua Việt Nam?", a: ["Sông Hồng", "Sông Mê Kông", "Sông Đồng Nai"], c: 1},
+            {q: "Đảo lớn nhất Việt Nam tên là gì?", a: ["Côn Đảo", "Hoàng Sa", "Phú Quốc"], c: 2},
+            {q: "Ai là người đọc bản Tuyên ngôn Độc lập năm 1945?", a: ["Võ Nguyên Giáp", "Hồ Chí Minh", "Trần Phú"], c: 1},
+            {q: "Thành phố nào được mệnh danh là Thành phố Ngàn hoa?", a: ["Đà Lạt", "Sa Pa", " Cầu Đập Đá"], c: 0},
+            {q: "Quốc gia nào giáp biên giới phía Bắc nước ta?", a: ["Lào", "Campuchia", "Trung Quốc"], c: 2},
+            {q: "Vịnh nào của Việt Nam được UNESCO công nhận là di sản?", a: ["Vịnh Hạ Long", "Vịnh Cam Ranh", "Vịnh Bắc Bộ"], c: 0},
+            {q: "Ngày Quốc khánh Việt Nam là ngày nào?", a: ["30/4", "2/9", "19/5"], c: 1},
+            {q: "Cố đô của Việt Nam thời nhà Nguyễn ở đâu?", a: ["Thăng Long", "Huế", "Hoa Lư"], c: 1}
         ];
+
         let cur = 0;
         function load() {
             const item = data[cur];
@@ -59,7 +69,7 @@
             item.a.forEach((opt, i) => {
                 const btn = document.createElement('button'); btn.className = 'ans-btn';
                 btn.innerText = opt; btn.onclick = () => {
-                    document.getElementById('msg').innerText = i === item.c ? "Đúng rồi! ✨" : "Sai rồi! 😢";
+                    document.getElementById('msg').innerText = i === item.c ? "Đúng rồi! ✨" : "Sai rồi Cali ơi";
                     setTimeout(() => { cur = (cur + 1) % data.length; load(); document.getElementById('msg').innerText = ''; }, 1500);
                 };
                 b.appendChild(btn);
