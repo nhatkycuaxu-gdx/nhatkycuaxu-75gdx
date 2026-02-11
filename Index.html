@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Tổng Hợp Kiến Thức</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 20px; background: #f4f4f4; }
+        .container { max-width: 700px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h2 { color: #2ecc71; border-bottom: 2px solid #2ecc71; padding-bottom: 5px; }
+        .video-box { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; background: #000; margin-bottom: 20px; }
+        .video-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .quiz-box { background: #e8f5e9; padding: 20px; border-radius: 10px; text-align: center; }
+        .ans-btn { display: block; width: 100%; padding: 10px; margin: 10px 0; background: white; border: 1px solid #2ecc71; border-radius: 5px; cursor: pointer; }
+        .ans-btn:hover { background: #2ecc71; color: white; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>BẢN TIN GIÁO DỤC 2026</h1>
+        
+        <section>
+            <h2>📰 Tin Tức Mới</h2>
+            <p><strong>Khám phá:</strong> Những di tích lịch sử vừa được số hóa 3D giúp học sinh trải nghiệm chân thực hơn.</p>
+        </section>
+
+        <section>
+            <h2>📺 Video Bài Giảng</h2>
+            <div class="video-box">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"></iframe>
+            </div>
+        </section>
+
+        <section>
+            <h2>🎮 Game Trắc Nghiệm</h2>
+            <div class="quiz-box">
+                <p id="q" style="font-weight:bold;">Đang tải câu hỏi...</p>
+                <div id="btns"></div>
+                <p id="msg"></p>
+            </div>
+        </section>
+
+        <section>
+            <h2>🎵 Podcast Audio</h2>
+            <audio controls style="width:100%"><source src="https://www.w3schools.com/html/horse.mp3"></audio>
+        </section>
+    </div>
+
+    <script>
+        const data = [
+            {q: "Đỉnh núi cao nhất Việt Nam là?", a: ["Fansipan", "Mẫu Sơn", "Tây Côn Lĩnh"], c: 0},
+            {q: "Vua cuối cùng của Việt Nam là ai?", a: ["Bảo Đại", "Khải Định", "Minh Mạng"], c: 0}
+        ];
+        let cur = 0;
+        function load() {
+            const item = data[cur];
+            document.getElementById('q').innerText = item.q;
+            const b = document.getElementById('btns'); b.innerHTML = '';
+            item.a.forEach((opt, i) => {
+                const btn = document.createElement('button'); btn.className = 'ans-btn';
+                btn.innerText = opt; btn.onclick = () => {
+                    document.getElementById('msg').innerText = i === item.c ? "Đúng rồi! ✨" : "Sai rồi! 😢";
+                    setTimeout(() => { cur = (cur + 1) % data.length; load(); document.getElementById('msg').innerText = ''; }, 1500);
+                };
+                b.appendChild(btn);
+            });
+        }
+        load();
+    </script>
+</body>
+</html>
